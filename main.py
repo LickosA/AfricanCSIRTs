@@ -8,6 +8,11 @@ BD = './BD/Africa.json'
 class Csirt(BaseModel):
     pass
 
+@app.get("/")
+def read_root():
+    return {"Hello": "Welcome to African CSIRT API"}
+
+
 @app.get("/cities")
 async def list_cities():
     with open(BD) as f:

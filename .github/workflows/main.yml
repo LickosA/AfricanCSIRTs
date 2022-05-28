@@ -31,12 +31,6 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install black pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Test with pytest
-      env:
-        # Uses the JWT_SECRET_KEY env variable from the Github actions secrets
-        JWT_SECRET_KEY : ${{ secrets.JWT_SECRET_KEY }}
-      run: |
-        pytest
     # Task for deploying to Heroku 
     - name: Deploy to Heroku 
       env:

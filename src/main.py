@@ -1,20 +1,13 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+import uvicorn
 import json
-
-tags_metadata = [
-    {"name": "CSIRT"},
-    {"name": "Incident Response Team"},
-    {"name": "Africa"},
-]
 
 app = FastAPI(
     title="CSIRT in AFRICA",
     description="Information about CSIRT in Africa region",
-    openapi_tags=tags_metadata
 )
 
-app = FastAPI()
 BD = './BD/Africa.json'
 
 class Csirt(BaseModel):
@@ -65,3 +58,6 @@ async def all_data():
 @app.post('/csirt')
 async def create_csirt(csirt:Csirt):
     return csirt
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host='0.0.0.0', port=8080)

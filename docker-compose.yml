@@ -11,5 +11,5 @@ services:
       - africancsirt_network
 
 networks:
-  test_network:
+  africancsirt_network:
     driver: bridge

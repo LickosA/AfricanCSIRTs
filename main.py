@@ -2,6 +2,18 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import json
 
+tags_metadata = [
+    {"name": "CSIRT"},
+    {"name": "Incident Response Team"},
+    {"name": "Africa"},
+]
+
+app = FastAPI(
+    title="CSIRT in AFRICA",
+    description="Information about CSIRT in Africa region",
+    openapi_tags=tags_metadata
+)
+
 app = FastAPI()
 BD = './BD/Africa.json'
 
